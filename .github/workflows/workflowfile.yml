@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Continuous Integration
+name: Continuous Integration Demo
 
 # Controls when the workflow will run
 on:
@@ -29,8 +29,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: a custom script
-        run: |
-            ls -al
+        run: ls -al
 
       # Runs a set of commands using the runners shell
       - name: Run multiple-linescript
@@ -41,12 +40,14 @@ jobs:
         run: |
           java -version
       - name: gradle build
-        run: |
-          gradle build
+        run: gradle build
       - name: gradlew build
-        run: |
-          ./gradlew build
+        run: ./gradlew build
       - name: docker version
         run: |
           docker -v
           docker
+          docker images -a
+      - name: docker build
+        run: |
+          docker build . -t demo-kotlin2.0
